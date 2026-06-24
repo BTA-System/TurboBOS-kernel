@@ -1,8 +1,5 @@
 # BOS — 运行在TurboWarp的模拟操作系统内核
 *此版本为BOS的主要分支TurboBOS*
-<div align="center">
-  <img src="bos-logo.svg" width="200" alt="描述文字" />
-</div>
 
 
 # TurboBOS是什么？
@@ -30,15 +27,6 @@ TurboBOS 是一个运行在 TurboWarp 上的 **操作系统内核** ，具备完
 
 ## 文档参考：
 *TurboBOS文档位于`/doc`路径内，有中文版和英文版两种版本可自由阅读*
-
-# 许可证
-
-本项目不同组件采用不同许可证：
-
-- **TurboBOS 内核** ：GPL-3.0(`/BOS Kernel与其他`)
-- **扩展** ：MIT (其中的iframe扩展基于 [TurboWarp 扩展](https://github.com/TurboWarp/extensions) 修改)(`/extensions`)
-
-请在使用各组件前，查看对应目录下的 LICENSE 文件。
 
 # 关于语言统计
 GitHub 自动将本仓库标记为 HTML 与 JavaScript，是因为只识别到了扩展部分的 JS 文件(.js)。BOS 的实际内核逻辑主要存在于 **.sb3/.sprite** 文件中（Scratch / TurboWarp 项目格式）,其底层是 TurboWarp 虚拟机和积木块逻辑，而非纯 JS 内核。

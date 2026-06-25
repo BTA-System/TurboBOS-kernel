@@ -2,11 +2,11 @@
 
 ## Instruction Format
 - **6-byte instructions**: `[opcode] [dest] [src]` (each field 2 bytes)
-- **4-byte instructions**: `[opcode] [addr]` (jumps, stack ops)
+- **4-byte instructions**: `[opcode] [addr]` (jumps, single-operand instructions)
 - **2-byte instructions**: `[opcode]` (no operands)
 
 ## Opcode Table
-| Hex Opcode | Decimal | Binary Opcode | Mnemonic | Length（byte） |
+| Hex Opcode | Decimal | Binary Opcode | Mnemonic | Length |
 | --- | --- | --- | --- | --- |
 | 0000 | 0 | 0000 0000 0000 0000 | MOV | 6 |
 | 0001 | 1 | 0000 0000 0000 0001 | ADD | 6 |
@@ -25,12 +25,13 @@
 | 000E | 14 | 0000 0000 0000 1110 | SHR | 6 |
 | 000F | 15 | 0000 0000 0000 1111 | CMP | 6 |
 | 0010 | 16 | 0000 0000 0001 0000 | AND | 6 |
-| 0012 | 18 | 0000 0000 0001 0010 | OR | 6 |
-| 0013 | 19 | 0000 0000 0001 0011 | NOT | 4 |
-| 0014 | 20 | 0000 0000 0001 0100 | MOVR | 6 |
-| 0015 | 21 | 0000 0000 0001 0101 | NOP | 2 |
-| 0016 | 22 | 0000 0000 0001 0110 | XOR | 6 |
-| 0017 | 23 | 0000 0000 0001 0111 | XNOR | 6 |
+| 0011 | 17 | 0000 0000 0001 0001 | OR | 6 |
+| 0012 | 18 | 0000 0000 0001 0010 | NOT | 4 |
+| 0013 | 19 | 0000 0000 0001 0011 | MOVR | 6 |
+| 0014 | 20 | 0000 0000 0001 0100 | NOP | 2 |
+| 0015 | 21 | 0000 0000 0001 0101 | XOR | 6 |
+| 0016 | 22 | 0000 0000 0001 0110 | XNOR | 6 |
+| 0017 | 23 | 0000 0000 0001 0111 | GETPC | 4 |
 
 ---
 
@@ -44,11 +45,18 @@
 - **Example**: `MOV AR, 123`
 
 ### MOVR — Move Register
-- **Opcode**: `0x0014`
+- **Opcode**: `0x0013`
 - **Format**: `MOVR dest, src`
 - **Length**: 6 bytes
 - **Operation**: `reg[dest] = reg[src]`
 - **Example**: `MOVR BR, AR`
+
+### GETPC — Get Program Counter
+- **Opcode**: `0x0017`
+- **Format**: `GETPC dest`
+- **Length**: 4 bytes
+- **Operation**: `reg[dest] = PC`
+- **Example**: `GETPC AR`
 
 ---
 
@@ -94,28 +102,28 @@
 - **Example**: `AND AR, BR`
 
 ### OR — Bitwise OR
-- **Opcode**: `0x0012`
+- **Opcode**: `0x0011`
 - **Format**: `OR dest, src`
 - **Length**: 6 bytes
 - **Operation**: `reg[dest] = reg[dest] | reg[src]`
 - **Example**: `OR AR, BR`
 
 ### NOT — Bitwise NOT
-- **Opcode**: `0x0013`
+- **Opcode**: `0x0012`
 - **Format**: `NOT dest`
 - **Length**: 4 bytes
 - **Operation**: `reg[dest] = ~reg[dest]`
 - **Example**: `NOT AR`
 
 ### XOR — Bitwise XOR
-- **Opcode**: `0x0016`
+- **Opcode**: `0x0015`
 - **Format**: `XOR dest, src`
 - **Length**: 6 bytes
 - **Operation**: `reg[dest] = reg[dest] ^ reg[src]`
 - **Example**: `XOR AR, BR`
 
 ### XNOR — Bitwise XNOR
-- **Opcode**: `0x0017`
+- **Opcode**: `0x0016`
 - **Format**: `XNOR dest, src`
 - **Length**: 6 bytes
 - **Operation**: `reg[dest] = ~(reg[dest] ^ reg[src])`
@@ -207,10 +215,10 @@
 - **Example**: `SYSCALL`
 
 ### NOP — No Operation
-- **Opcode**: `0x0015`
+- **Opcode**: `0x0014`
 - **Format**: `NOP`
 - **Length**: 2 bytes
-- **Operation**: No operation; yields CPU for cooperative scheduling
+- **Operation**: Does nothing; yields CPU for cooperative scheduling
 - **Example**: `NOP`
 
 ---
@@ -245,4 +253,4 @@
 
 ---
 
-*Document Version: 1.1 | Updated: 2026-06-21 | Author: qpwq1 (XaoDingx)*
+*Document Version: 1.2 | Updated: 2026-06-25 | Author: qpwq1 (XaoDingx)*

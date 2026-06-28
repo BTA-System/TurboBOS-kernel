@@ -40,4 +40,4 @@ GitHub automatically labels this repository as HTML and JavaScript because it on
 4. Develop a BMC compiler to eliminate the need for handwritten bytecode
 5. Create a repository where BM script developers can freely upload their own software
 
-*BOS Main Repository Link: https://github.com/qpwq1/Basic-Operating-System-BOS-*
+*BOS Main Repository Link: https://github.com/BTA-System/TurboBOS-kernel*

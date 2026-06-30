@@ -1,87 +1,95 @@
-# BOS — An Operating System Kernel Running on TurboWarp
+# TurboBOS
 
-> Current mainline version: **TurboBOS**
+**TurboBOS** is an operating system kernel simulation project running on TurboWarp, featuring memory management, process scheduling, a file system, system calls, and a custom scripting language (BM). It is a core component of the **BTA ecosystem** (BOS Software Technology Aggregate).
+
+> This project is an **educational and demonstrative** operating system kernel simulation. It is **not** a real operating system that can boot on bare metal.
 
 ---
 
-## What is TurboBOS?
+## Can it run software?
 
-TurboBOS is an **operating system kernel** that runs on **TurboWarp**, featuring complete memory management, process scheduling, file systems, system calls, and a self-developed scripting language (BM), along with a simple yet extensible communication protocol (SCIO) designed from the ground up.
+Yes, but it is still work in progress.
 
-It is one of the core components of the **BTA technology ecosystem** (BOS Software Technology Aggregate).
+We have designed the ISA (Instruction Set Architecture) for BVM and implemented some of the instructions. The project is currently in a **semi-finished state**. We will continue to develop the compiler (BMC) and scheduler (CFS) in the future.
 
-> **Please note**: BOS is a **kernel simulation / educational demonstration project** running on the TurboWarp / Scratch runtime environment. It is **not** a real operating system kernel capable of booting on bare metal (x86 / RISC-V, etc.).
+---
+
+## How to download and run?
+
+### Directory Structure
+```
+TurboBOS-kernel/
+├── kernel/ # Kernel blocks (JSON export)
+├── Expand/ # iframe and SCIO subsystem implementation
+├── docs/ # Documentation (Chinese & English)
+├── README.md # This file (Chinese)
+├── README-EN.md # English README
+└── LICENSE # GPL-3.0 License
+```
+
+### Download
+
+Please download the latest version from [Releases](https://github.com/BTA-System/TurboBOS-kernel/releases). **Avoid downloading old or unstable versions.**
+
+### How to run
+
+1. Visit [TurboWarp](https://turbowarp.org)
+2. Click "Load from your computer" in the top-left toolbar and select the downloaded `.sb3` file
+3. If you downloaded the `.sprite3` format, click "See inside" first, then upload the `.sprite3` file via the bottom-right button
+
+---
+
+## How is it different from other ScratchOS?
+
+TurboBOS and other ScratchOS projects are **not about who is better** — they have different focuses:
+
+| Aspect | TurboBOS | Other ScratchOS |
+|--------|----------|-----------------|
+| Core Goal | Simulate operating system kernel behavior | Build graphical interfaces and interactive experiences |
+| Main Challenge | Memory management, instruction sets, scheduling | UI design, animations, event handling |
+| Focus | Education and kernel implementation | Visuals and user experience |
+
+Both are engineering explorations within the Scratch/TurboWarp ecosystem.
+
+---
+
+## Why can't I use it out of the box?
+
+TurboBOS is a **kernel**. It does not include a desktop environment, command-line tools, or applications by itself. These will be provided by other components of the BTA ecosystem, such as:
+
+- **Bsh**: Command-line interface
+- **BMC**: BM language compiler
+- **BOSP**: Official distribution (BOS Open Source Project)
+
+We will begin developing these components once the kernel is close to completion.
 
 ---
 
 ## Design Philosophy
 
-- **Monolithic kernel**: The kernel provides only core services; UI and applications are implemented by distributions or secondary libraries.
-- **System call interface**: BM programs use the `SYSCALL` instruction, while external communication uses the SCIO protocol.
+### Everything I Make
 
----
+Use extensions as little as possible. External capabilities are only used when absolutely necessary.
 
-## Directory Structure
-```
-TurboBOS-kernel/
-├── kernel/ # Kernel blocks (JSON export)
-├── Expand/ # iframe and SCIO subsystem implementation
-├── docs/ # Documentation (Chinese and English)
-├── README.md # This file
-├── README-EN.md # English README
-├── LICENSE # License
-```
+### Everything Decoupled
 
+Modules are clearly layered, and each module solves only one problem. For example:
 
----
+- BVM's instruction interpreter, fetch loop, and CFS scheduler are independent of each other
+- Each module does one thing only
 
-## Runtime Environment
-
-- Run online: [TurboWarp](https://turbowarp.org)
-- Usage: Click the "Choose a Sprite" button in the bottom-right corner, load the BOS `.sprite3` file into the project, and you can view the source code.
-
----
-
-## SCIO Protocol
-
-SCIO is the protocol used by BOS to communicate with external environments (such as iframes), developed with deep customization based on TurboWarp's iframe extension.
-
-**Note**: The SCIO runtime environment in this project is built upon a deeply customized version of TurboWarp's iframe extension. For details, see `./Expand/README.MD`.
-
----
-
-## Documentation Reference
-
-The complete documentation for TurboBOS is located in the `/docs` directory, available in both Chinese and English for free reading.
-
----
-
-## About Language Statistics
-
-GitHub automatically marks this repository as **HTML and JavaScript** because it only recognizes the `.js` files in the extension portion.
-
-The actual kernel logic of BOS primarily resides in **`.sb3` / `.sprite3`** files (Scratch / TurboWarp project formats), whose underlying implementation is based on the TurboWarp virtual machine and block logic, rather than a pure JavaScript kernel.
-
----
-
-## Future Vision
-
-1. Optimize README and project documentation
-2. Continuously advance bytecode reform
-3. Develop a command-line interface (BOS Shell, abbreviated as **Bsh**) using BM scripts and open-source it under the MIT license
-4. Develop the **BMC compiler** to eliminate the need for handwritten bytecode
-5. Create a third-party application repository, allowing BM script developers to freely upload their own works
+> Note: There is significant coupling between BOS and BVM, and they are currently difficult to fully separate. This reflects the current architectural reality.
 
 ---
 
 ## License
 
-This project is licensed under the **GPL-3.0** License.
+This project is licensed under the **GPL-3.0** License. See the `LICENSE` file for details.
 
 ---
 
 ## Related Links
 
-- [BTA Technology Ecosystem](https://github.com/BTA-System)
-- [BOS Official Website](https://bta-system.github.io/TurboBOS-kernel)
+- [BTA Ecosystem](https://github.com/BTA-System)
+- [BOS Official Website](https://bta-system.github.io/TurboBOS-kernel/)
 - [BOS GitHub Repository](https://github.com/BTA-System/TurboBOS-kernel)

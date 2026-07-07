@@ -1,6 +1,6 @@
 # TurboBOS
 
-**TurboBOS** is an operating system kernel simulation project running on TurboWarp, featuring memory management, process scheduling, a file system, system calls, and a custom scripting language (BM). It is a core component of the **BTA ecosystem** (BOS Software Technology Aggregate).
+**TurboBOS** is an operating system kernel simulation project running on TurboWarp. The full name is Turbo Basic Operating System. featuring memory management, process scheduling, a file system, system calls, and a custom scripting language (BM). It is a core component of the **BTA ecosystem** (BOS Software Technology Aggregate).
 
 > This project is an **educational and demonstrative** operating system kernel simulation. It is **not** a real operating system that can boot on bare metal.
 

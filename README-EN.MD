@@ -21,7 +21,7 @@ We have designed the instruction set architecture (ISA) for the BVM and implemen
 ### Directory structure
 ```
 TurboBOS-kernel/
-├── kernel/       # kernel building blocks (JSON export)
+├── kernel/       # The Kernel Core .SB3 File
 ├── Expand/       # various JS extensions required by BOS
 ├── docs/         # documentation (Chinese & English)
 ├── README.md     # this file

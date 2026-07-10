@@ -21,7 +21,7 @@
 ### 目录结构
 ```
 TurboBOS-kernel/
-├── kernel/ # 内核积木（JSON 导出）
+├── kernel/ # 内核核心.SB3文件
 ├── Expand/ # 各种BOS所依赖的JS扩展
 ├── docs/ # 文档（中英文）
 ├── README.md # 本文件

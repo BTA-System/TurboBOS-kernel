@@ -67,6 +67,9 @@ We will begin developing these components as the kernel nears completion.
 
 ---
 
+## Contributing
+Please refer to the file `CONTRIBUTING.md`.
+
 ## Design philosophy
 
 ### Do things in-house when possible

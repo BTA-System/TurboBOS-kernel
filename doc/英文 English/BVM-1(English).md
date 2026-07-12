@@ -1,4 +1,4 @@
-# BVM-1 Instruction Set Documentation
+# BVM Instruction Set Documentation
 
 ## Instruction Format
 - **6-byte instructions**: `[opcode] [dest] [src]` (each field 2 bytes)
@@ -253,4 +253,4 @@
 
 ---
 
-*Document Version: 1.2 | Updated: 2026-06-25 | Author: qpwq1 (XaoDingx)*
+*Document Version: 1.3 | Updated: 2026-07-12 | Author: qpwq1 (XaoDingx)*

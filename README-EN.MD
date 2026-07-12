@@ -23,7 +23,7 @@ We have designed the instruction set architecture (ISA) for the BVM and implemen
 TurboBOS-kernel/
 ├── kernel/       # The Kernel Core .SB3 File
 ├── Expand/       # various JS extensions required by BOS
-├── docs/         # documentation (Chinese & English)
+├── doc/         # documentation (Chinese & English)
 ├── README.md     # this file
 ├── README-EN.md  # English README
 └── LICENSE       # GPL-3.0 license

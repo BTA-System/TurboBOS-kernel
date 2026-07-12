@@ -1,4 +1,4 @@
-# BOS文档
+# BOS文档 BOS-Doc
 - [中文文档](./中文%20Chinese)
 - [英文文档](./英文%20English)
 

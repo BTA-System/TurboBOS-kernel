@@ -2,6 +2,8 @@
 // ID: bosIframeMsg
 // Description: 支持消息记录、最后消息获取、应用间通信
 
+//请注意，次扩展在TurboBOS-Kernel 0.1以后将弃用，次文件仅作归档
+
 (function (Scratch) {
   "use strict";
 

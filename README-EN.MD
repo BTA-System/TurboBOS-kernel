@@ -96,5 +96,6 @@ This project is licensed under **GPL-3.0**. See `LICENSE` for details.
 ## Related links
 
 - [BTA system](https://github.com/BTA-System)  
-- [BOS website](https://bta-system.github.io/TurboBOS-kernel/)  
-- [BOS GitHub repository](https://github.com/BTA-System/TurboBOS-kernel)
+- [TurboBOS website](https://bta-system.github.io/TurboBOS-kernel/)  
+- [TurboBOS GitHub repository](https://github.com/BTA-System/TurboBOS-kernel)
+- [TurboBOS documentation](./doc/README.MD)

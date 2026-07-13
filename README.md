@@ -94,6 +94,7 @@ TurboBOS 是一个**内核**，本身不包含桌面环境、命令行工具或�
 ---
 
 ## 相关链接
+> 有时候你可能会看到TurboBOS被写成BOS，但这只是BOS的另一种简写写法，两者实际上并没有区别
 
 - [BTA 技术体系](https://github.com/BTA-System)
 - [TurboBOS 官网](https://bta-system.github.io/TurboBOS-kernel/)

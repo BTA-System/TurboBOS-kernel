@@ -94,6 +94,7 @@ This project is licensed under **GPL-3.0**. See `LICENSE` for details.
 ---
 
 ## Related links
+> Sometimes you may see TurboBOS written as BOS, but this is just another shorthand way of writing BOS, and there is actually no difference between the two.
 
 - [BTA system](https://github.com/BTA-System)  
 - [TurboBOS website](https://bta-system.github.io/TurboBOS-kernel/)  

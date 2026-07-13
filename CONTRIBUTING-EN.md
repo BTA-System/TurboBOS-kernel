@@ -86,7 +86,7 @@ PRs are not rejected outright, but their acceptance bar is higher than that for 
 BOS does not currently have strict style checks, but please try to follow these principles:
 
 - Use the format "[ModuleName]_variableName" for variable names, e.g., "[MEM]_counter".
-- Use the format "[ModuleName]_functionName" for function names, e.g., "[MEM]_size".
+- Use the format "ModuleName_functionName" for function names, e.g., "[MEM]_size".
 - Add comments for key logic (Chinese is acceptable, but English is preferred for broader collaboration).
 - Keep functions short and focused on a single responsibility.
 - Do not introduce new external dependencies (such as extensions); if you have such a need, please inform the author.

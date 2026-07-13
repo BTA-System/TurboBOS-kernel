@@ -96,5 +96,6 @@ TurboBOS 是一个**内核**，本身不包含桌面环境、命令行工具或�
 ## 相关链接
 
 - [BTA 技术体系](https://github.com/BTA-System)
-- [BOS 官网](https://bta-system.github.io/TurboBOS-kernel/)
-- [BOS GitHub 仓库](https://github.com/BTA-System/TurboBOS-kernel)
+- [TurboBOS 官网](https://bta-system.github.io/TurboBOS-kernel/)
+- [TurboBOS GitHub 仓库](https://github.com/BTA-System/TurboBOS-kernel)
+- [TurboBOS文档](./doc/README.MD)

@@ -24,6 +24,7 @@ TurboBOS-kernel/
 ├── kernel/ # 内核核心.SB3文件
 ├── Expand/ # 各种BOS所依赖的JS扩展
 ├── doc/ # 文档（中英文）
+├── other/ #可选的附件（类似包，但需手动安装再打包编译）
 ├── README.md # 本文件
 ├── README-EN.md # 英文版 README
 └── LICENSE # GPL-3.0 许可证

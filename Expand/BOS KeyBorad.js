@@ -1,5 +1,3 @@
-// BOS Keyboard Extension with组合键支持 - 非沙盒模式 (Unsandboxed)
-
 (function(Scratch) {
     'use strict';
 
@@ -9,9 +7,9 @@
 
     class BOSKeyboard {
         constructor() {
-            // 存储当前按下的键（按按下顺序）
+            this._keyCode = 0;
+            this._keyName = '';
             this._pressedKeys = [];
-            // 存储键码和键名的映射（可选）
         }
 
         getInfo() {
@@ -54,16 +52,14 @@
             };
         }
 
-        // 单个按键报告
         getKeyCode() {
-            return this._currentKeyCode || 0;
+            return this._keyCode || 0;
         }
 
         getKeyName() {
-            return this._currentKeyName || '';
+            return this._keyName || '';
         }
 
-        // 组合键报告
         getCombinationKey1() {
             return this._pressedKeys[0] || '';
         }
@@ -76,19 +72,16 @@
             return this._pressedKeys[2] || '';
         }
 
-        // 更新按下键列表
         _updatePressedKeys(e) {
             const keyName = e.key || e.code || '';
-            // 避免重复添加（按住键会持续触发 keydown）
             if (!this._pressedKeys.includes(keyName)) {
                 this._pressedKeys.push(keyName);
             }
-            // 保存单个按键信息（最后一个按下的键）
-            this._currentKeyCode = e.keyCode || e.which;
-            this._currentKeyName = keyName;
+            this._keyCode = e.keyCode || e.which;
+            this._keyName = keyName;
+            Scratch.vm.runtime.startHats('boskeyboard_whenKeyEvent');
         }
 
-        // 从列表中移除按键
         _removePressedKey(e) {
             const keyName = e.key || e.code || '';
             const index = this._pressedKeys.indexOf(keyName);
@@ -101,20 +94,25 @@
     const extension = new BOSKeyboard();
     Scratch.extensions.register(extension);
 
-    // 键盘事件监听
+    function isInputElement(target) {
+        const tag = target.tagName.toLowerCase();
+        return tag === 'input' || tag === 'textarea' || target.isContentEditable;
+    }
+
     document.addEventListener('keydown', function(e) {
-        // 更新组合键列表
+        // 只有非输入框才阻止默认行为（保留输入框的正常输入）
+        if (!isInputElement(e.target)) {
+            e.preventDefault();
+        }
         extension._updatePressedKeys(e);
-        // 触发帽子积木
-        Scratch.vm.runtime.startHats('boskeyboard_whenKeyEvent');
-    });
+    }, true);
 
     document.addEventListener('keyup', function(e) {
-        // 从组合键列表中移除
+        // 只有非输入框才阻止默认行为
+        if (!isInputElement(e.target)) {
+            e.preventDefault();
+        }
         extension._removePressedKey(e);
-        // 也可以选择在释放时触发事件，但通常不需要
-        // 如需在释放时触发，可以取消注释下面一行
-        // Scratch.vm.runtime.startHats('boskeyboard_whenKeyEvent');
-    });
+    }, true);
 
 })(Scratch);

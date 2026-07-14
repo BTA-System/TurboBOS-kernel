@@ -1,6 +1,6 @@
 # BOS Keyboard Key Number Mapping Table (Official Version)
 
-This table defines the mapping from the keyCode property of native browser keyboard events (keydown / keyup) to BOS internal key numbers. All key numbers are 16‑bit unsigned integers and can be directly used in the implementation of the decoding layer of the BOS keyboard driver.
+This table defines the mapping from the keyCode property of native browser keyboard events (keydown / keyup) to BOS internal key numbers. All key numbers are 16‑bit unsigned integers。
 
 ---
 

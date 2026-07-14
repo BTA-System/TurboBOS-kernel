@@ -2,7 +2,7 @@
 `The English version of README.MD is located at ./README-EN.MD`
 # TurboBOS
 
-**TurboBOS** 是一个运行在 TurboWarp 上的操作系统内核模拟项目，全称为 *Turbo Basic Operating System* 。包含内存管理、进程调度、文件系统、系统调用和自研脚本语言（BM）。它是 **BTA 体系**（BOS Software Technology Aggregate）的核心组成部分之一。
+**TurboBOS** 是一个运行在 TurboWarp 上的操作系统内核模拟项目，全称为 *Turbo Basic Operating System* 。包含内存管理、进程调度、文件系统、系统调用和自研脚本语言（BM）。它是 **BTA 体系**（BTA Software Technology Aggregate）的核心组成部分之一。
 
 > 本项目是一个**教学与演示性质**的操作系统内核模拟，并非可直接引导裸机的真实操作系统。
 

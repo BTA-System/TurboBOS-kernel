@@ -1,102 +1,103 @@
-`The Chinese version of README.MD is located at ./README.md`
-
+`The English version of README.MD is located at ./README-EN.MD`
 # TurboBOS
 
-**TurboBOS** is an operating-system kernel simulation project running on TurboWarp; the full name is Turbo Basic Operating System. It includes memory management, process scheduling, a file system, system calls, and a self-developed scripting language (BM). It is one of the core components of the BTA system (BOS Software Technology Aggregate).
+**TurboBOS** is an operating system kernel simulation project that runs on TurboWarp, with its full name being *Turbo Basic Operating System*. It includes memory management, process scheduling, a file system, system calls, and a self-developed scripting language (BM). It is one of the core components of the **BTA ecosystem** (BOS Software Technology Aggregate).
 
-> This project is an educational and demonstrative OS kernel simulation, not a real operating system that can boot bare metal.
+> This project is an **educational and demonstrative** operating system kernel simulation, not a real operating system that can be booted directly on bare metal.
 
 ---
 
 ## Can it run software?
 
-Yes, but it is still under development.
+Yes, but it is still being improved.
 
-We have designed the instruction set architecture (ISA) for the BVM and implemented part of the instruction set. The project is currently in a semi-finished state; we will continue developing the compiler (BMC) and the scheduler (CFS).
+We have designed the instruction set architecture (ISA) for BVM and implemented some of the instructions. The project is currently in a **semi-finished state**; we will continue to develop the compiler (BMC) and the scheduler (CFS) in the future.
 
 ---
 
-## How to download and run
+## How to download and run?
 
-### Directory structure
+### Directory Structure
+
 ```
 TurboBOS-kernel/
-├── kernel/       # The Kernel Core .SB3 File
-├── Expand/       # various JS extensions required by BOS
-├── doc/         # documentation (Chinese & English)
-├── README.md     # this file
-├── README-EN.md  # English README
-└── LICENSE       # GPL-3.0 license
+├── kernel/ # Kernel Core .SB3 File
+├── Expand/ # Various JS extensions that BOS depends on
+├── doc/ # Documentation (English and Chinese)
+├── other/ # Optional attachments (similar to packages, but require manual installation before packaging and compilation)
+├── README.md # This file
+├── README-EN.md # English version of README
+└── LICENSE # GPL-3.0 license
 ```
-
 ### Download
 
-Please download the latest release from the [Releases](https://github.com/BTA-System/TurboBOS-kernel/releases) page; avoid downloading older or unstable versions.
+Please download the latest version from the [Releases](https://github.com/BTA-System/TurboBOS-kernel/releases) page. **Avoid downloading older or unstable versions.**
 
-### How to run
+### How to Run
 
-1. Visit [TurboWarp](https://turbowarp.org).  
-2. Click "Open from your computer" in the top-left toolbar and choose the downloaded `.sb3` file.  
-3. If you downloaded a `.sprite3` file, click "See source" first, then upload it using the bottom-right upload control.
+1. Go to [TurboWarp](https://turbowarp.org)
+2. Click "Open from your computer" in the top-left toolbar and select the downloaded `.sb3` file.
+3. If you downloaded a `.sprite3` file, first click "Go to source code", then upload it via the button in the bottom-right corner.
 
 ---
 
-## Differences from other ScratchOS projects
+## Differences from Other ScratchOS Projects
 
-TurboBOS and other ScratchOS projects are not inherently better or worse—just different in focus:
+TurboBOS and other ScratchOS projects are **not superior or inferior** to each other; they simply have different directions:
 
-| Direction | TurboBOS | Other ScratchOS |
-|----------:|:--------:|----------------:|
-| Primary goal | Simulate OS kernel behavior | Build graphical interfaces and interactive experiences |
-| Main challenges | Memory management, instruction set, scheduling | UI design, animation, event handling |
+| Aspect | TurboBOS | Other ScratchOS |
+|--------|----------|-----------------|
+| Core goal | Simulate operating system kernel behavior | Build graphical interfaces and interactive experiences |
+| Source of difficulty | Memory management, instruction set, scheduling | UI design, animation, event handling |
 | Focus | Education and kernel implementation | Visuals and user experience |
 
 Both are engineering explorations within the Scratch/TurboWarp ecosystem.
 
 ---
 
-## Why isn't it "ready out of the box"?
+## Why is it not "plug-and-play" out of the box?
 
-TurboBOS is a kernel and does not include a desktop environment, command-line tools, or applications. Those will be provided by other components in the BTA system, for example:
+TurboBOS is a **kernel**; it does not itself include a desktop environment, command-line tools, or applications. These will be provided by other components in the BTA ecosystem, such as:
 
-- **Bsh**: command-line interface  
-- **BMC**: BM language compiler  
+- **Bsh**: command-line interface
+- **BMC**: BM language compiler
 - **BOSP**: official distribution (BOS Open Source Project)
 
-We will begin developing these components as the kernel nears completion.
+We will start developing these components when the kernel is nearing completion.
 
 ---
 
 ## Contributing
-Please refer to the file `CONTRIBUTING.md`.
 
-## Design philosophy
+Please refer to the file `CONTRIBUTING.md`
 
-### Do things in-house when possible
+## Design Philosophy
 
-Minimize the use of external extensions. External capabilities are used only when absolutely necessary.
+### Everything self-made
 
-### Decouple everything
+Try to use as few extensions as possible. External capabilities are only employed when absolutely necessary.
 
-Modules are clearly layered; each module addresses a single practical problem. For example:
+### Everything decoupled
 
-- The BVM instruction interpreter, fetch-execute loop, and the CFS scheduler are independent of one another.  
-- Each module should do only one thing.
+Modules are clearly layered, and each module solves only one practical problem. For example:
 
-> Note: There is significant coupling between BOS and BVM, and it is currently difficult to completely separate them. This is the current reality of the architecture.
+- BVM's instruction interpreter, fetch-decode-execute loop, and CFS scheduler are independent of each other
+- Each module does only one thing
+
+> Note: There is still significant coupling between BOS and BVM, and it is currently difficult to separate them completely. This is the current reality of the architecture.
 
 ---
 
 ## License
 
-This project is licensed under **GPL-3.0**. See `LICENSE` for details.
+This project is licensed under **GPL-3.0** – see the `LICENSE` file for details.
 
 ---
 
-## Related links
+## Related Links
 > Sometimes you may see TurboBOS written as BOS, but this is just another shorthand way of writing BOS, and there is actually no difference between the two.
 
-- [BTA system](https://github.com/BTA-System)  
-- [TurboBOS website](https://bta-system.github.io/TurboBOS-kernel/)  
-- [TurboBOS GitHub repository](https://github.com/BTA-System/TurboBOS-kernel)
-- [TurboBOS documentation](./doc/README.MD)
+- [BTA Technology Ecosystem](https://github.com/BTA-System)
+- [TurboBOS Official Website](https://bta-system.github.io/TurboBOS-kernel/)
+- [TurboBOS GitHub Repository](https://github.com/BTA-System/TurboBOS-kernel)
+- [TurboBOS Documentation](./doc/README.MD)

@@ -1,6 +1,6 @@
 # BOS Keyboard Key Number Mapping Table (Official Version)
 
-This table defines the mapping from the keyCode property of native browser keyboard events (keydown / keyup) to BOS internal key numbers. All key numbers are 16‑bit unsigned integers.
+This table defines the mapping from the `keyCode` of native browser keyboard events (`keydown` / `keyup`) to BOS internal key numbers. All key numbers are 16‑bit unsigned integers.
 
 ---
 
@@ -109,9 +109,28 @@ This table defines the mapping from the keyCode property of native browser keybo
 
 ---
 
-## Usage Notes
+## Special Characters (Shift + Digit Keys)
 
-1. All browser `keyCode` values not listed in this table shall be mapped to `0x0000` (indicating an unknown key or no key).
-2. Letter keys (A–Z) are mapped to BOS key numbers 6–31, case‑insensitive (case is determined by the Shift or CapsLock state).
-3. The main keyboard digits (0–9) are mapped to 32–41, while the numeric keypad digits (Numpad 0–9) are mapped to 74–83; they are independently numbered.
-4. This table can be directly used in the implementation of the decoding layer of the BOS keyboard driver. The input is the native browser `keyCode`, and the output is the BOS internal key number.
+| Key | BOS Key Number (Decimal) | BOS Key Number (Hex) | Remarks |
+|-----|--------------------------|----------------------|---------|
+| `!` | 114 | 0x0072 | Shift + 1 |
+| `@` | 115 | 0x0073 | Shift + 2 |
+| `#` | 116 | 0x0074 | Shift + 3 |
+| `$` | 117 | 0x0075 | Shift + 4 |
+| `%` | 118 | 0x0076 | Shift + 5 |
+| `^` | 119 | 0x0077 | Shift + 6 |
+| `&` | 120 | 0x0078 | Shift + 7 |
+| `*` | 121 | 0x0079 | Shift + 8 |
+| `(` | 122 | 0x007A | Shift + 9 |
+| `)` | 123 | 0x007B | Shift + 0 |
+| `_` | 124 | 0x007C | Shift + - |
+| `+` | 125 | 0x007D | Shift + = |
+| `{` | 126 | 0x007E | Shift + [ |
+| `}` | 127 | 0x007F | Shift + ] |
+| `\|` | 128 | 0x0080 | Shift + \ |
+| `:` | 129 | 0x0081 | Shift + ; |
+| `"` | 130 | 0x0082 | Shift + ' |
+| `<` | 131 | 0x0083 | Shift + , |
+| `>` | 132 | 0x0084 | Shift + . |
+| `?` | 133 | 0x0085 | Shift + / |
+| `~` | 134 | 0x0086 | Shift + ` |

@@ -29,7 +29,8 @@ TurboBOS-kernel/
 ├── other/ #可选的附件（类似包，但需手动安装再打包编译）
 ├── README.md # 本文件
 ├── README-EN.md # 英文版 README
-└── LICENSE # GPL-3.0 许可证
+├── LICENSE # GPL-3.0 许可证
+└── index.html #TurboBOS官网
 ```
 
 ### 下载

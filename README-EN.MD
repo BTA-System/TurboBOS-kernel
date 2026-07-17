@@ -24,13 +24,10 @@ TurboBOS-kernel/
 ├── kernel/ # Kernel Core .SB3 File
 ├── Expand/ # Various JS extensions that BOS depends on
 ├── doc/ # Documentation (English and Chinese)
-├── CONTRIBUTING.md # Contribution guidelines
-├── CONTRIBUTING-EN.md # English version of contribution guidelines
 ├── other/ # Optional attachments (similar to packages, but require manual installation before packaging and compilation)
 ├── README.md # This file
 ├── README-EN.md # English version of README
-├── LICENSE # GPL-3.0 license
-└── index.html # TurboBOS official website
+└── LICENSE # GPL-3.0 license
 ```
 ### Download
 

@@ -8,7 +8,7 @@ These guidelines are not meant to restrict you, but to ensure that your time and
 
 ## Before You Start
 
-BOS is currently maintained by **a single person**. This means:
+BOS is currently maintained by **two persons**. This means:
 
 - All code reviews, testing, and merging are done by one person.
 - Communication and adaptation costs are relatively high.

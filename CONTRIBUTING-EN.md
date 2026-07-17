@@ -1,6 +1,6 @@
 # BOS Contribution Guidelines
 
-First of all, thank you for your interest in BOS. BOS is an operating system kernel project maintained by a single individual and is still under active development.
+First of all, thank you for your interest in BOS. BOS is an operating system kernel project maintained by two individuals and is still under active development.
 
 These guidelines are not meant to restrict you, but to ensure that your time and effort are used effectively.
 
@@ -8,11 +8,11 @@ These guidelines are not meant to restrict you, but to ensure that your time and
 
 ## Before You Start
 
-BOS is currently maintained by **two persons**. This means:
+BOS is currently maintained by **two individuals**. This means:
 
-- All code reviews, testing, and merging are done by one person.
+- All code reviews, testing, and merging are done by two people.
 - Communication and adaptation costs are relatively high.
-- The project direction is determined by the core author.
+- The project direction is determined by the core authors.
 
 Therefore, **please communicate via an Issue before submitting anything**. This does not mean that contributions are unwelcome; rather, it is to ensure that your work does not go to waste.
 
@@ -67,7 +67,7 @@ PRs are not rejected outright, but their acceptance bar is higher than that for 
 
 - Adding a new feature (please open an Issue for discussion first).
 - Refactoring existing modules (please open an Issue for discussion first).
-- Modifying the core architecture (unless you have reached an agreement with the author).
+- Modifying the core architecture (unless you have reached an agreement with the authors).
 - Large‑scale changes without prior discussion.
 
 **PR submission process:**
@@ -85,11 +85,11 @@ PRs are not rejected outright, but their acceptance bar is higher than that for 
 
 BOS does not currently have strict style checks, but please try to follow these principles:
 
-- Use the format "[ModuleName] variableName" for variable names, e.g., "[MEM] counter".
-- Use the format "ModuleName_functionName" for function names, e.g., "[MEM]_size".
-- Add comments for key logic (Chinese is acceptable, but English is preferred for broader collaboration).
+- Use the format `[ModuleName] variableName` for variable names, e.g., `[MEM] counter`.
+- Use the format `ModuleName_functionName` for function names, e.g., `MEM_size`.
+- Add comments for key logic (Chinese is acceptable).
 - Keep functions short and focused on a single responsibility.
-- Do not introduce new external dependencies (such as extensions); if you have such a need, please inform the author.
+- Do not introduce new external dependencies (such as extensions); if you have such a need, please inform the authors.
 
 ---
 

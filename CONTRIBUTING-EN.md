@@ -6,7 +6,15 @@ These guidelines are not meant to restrict you, but to ensure that your time and
 
 ---
 
-**Before submitting anything, please communicate via an Issue first.** This does not mean that contributions are unwelcome; rather, it is to ensure that your work does not go to waste.
+## Before You Start
+
+BOS is currently maintained by **a single person**. This means:
+
+- All code reviews, testing, and merging are done by one person.
+- Communication and adaptation costs are relatively high.
+- The project direction is determined by the core author.
+
+Therefore, **please communicate via an Issue before submitting anything**. This does not mean that contributions are unwelcome; rather, it is to ensure that your work does not go to waste.
 
 ---
 
@@ -77,9 +85,9 @@ PRs are not rejected outright, but their acceptance bar is higher than that for 
 
 BOS does not currently have strict style checks, but please try to follow these principles:
 
-- Use the format `[ModuleName] variableName` for variable names, e.g., `[MEM] counter`.
-- Use the format `ModuleName_functionName` for function names, e.g., `MEM_size`.
-- Add comments for key logic (Chinese is acceptable).
+- Use the format "[ModuleName] variableName" for variable names, e.g., "[MEM] counter".
+- Use the format "ModuleName_functionName" for function names, e.g., "[MEM]_size".
+- Add comments for key logic (Chinese is acceptable, but English is preferred for broader collaboration).
 - Keep functions short and focused on a single responsibility.
 - Do not introduce new external dependencies (such as extensions); if you have such a need, please inform the author.
 

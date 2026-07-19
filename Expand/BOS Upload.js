@@ -1,4 +1,4 @@
-// BOS Upload Extension v1.0
+// BOS Upload Extension v1.1 (无空格)
 (function(Scratch) {
     'use strict';
 
@@ -77,21 +77,19 @@
                     const buffer = event.target.result;
                     const bytes = new Uint8Array(buffer);
 
-                    // 转换为二进制字符串（每个字节对齐16位）
+                    // 转换为二进制字符串（连续，无空格）
                     let binaryStr = '';
                     for (let i = 0; i < bytes.length; i++) {
                         const byte = bytes[i];
-                        // 8位二进制，然后前面补0到16位
                         const bin8 = byte.toString(2).padStart(8, '0');
-                        binaryStr += '00000000' + bin8; // 16位
-                        if (i < bytes.length - 1) binaryStr += ' '; // 空格分隔
+                        // 补0到16位
+                        binaryStr += '00000000' + bin8;
                     }
                     this._fileBinary = binaryStr;
 
-                    // 对于特定扩展名，尝试读取文本内容
+                    // 对于特定扩展名，读取文本内容
                     const textExts = ['bm', 'bmc', 'bsh'];
                     if (textExts.includes(ext)) {
-                        // 读取文本内容
                         const textReader = new FileReader();
                         textReader.onload = (ev) => {
                             this._fileText = ev.target.result;
@@ -100,7 +98,6 @@
                         };
                         textReader.readAsText(file);
                     } else {
-                        // 其他文件，文本内容设为空
                         this._fileText = '';
                         this._fireHat();
                         document.body.removeChild(input);
@@ -117,25 +114,22 @@
             Scratch.vm.runtime.startHats('bosupload_whenFileSelected');
         }
 
-        // 帽子积木（无实际实现）
+        // 帽子积木
         whenFileSelected() {}
 
-        // 报告器：文件名
+        // 报告器
         getFileName() {
             return this._fileName || '';
         }
 
-        // 报告器：扩展名
         getFileExt() {
             return this._fileExt || '';
         }
 
-        // 报告器：文件文本（仅当扩展名为 .bm/.bmc/.bsh 时有效）
         getFileText() {
             return this._fileText || '';
         }
 
-        // 报告器：文件二进制（所有文件，每个字节16位，空格分隔）
         getFileBinary() {
             return this._fileBinary || '';
         }

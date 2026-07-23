@@ -1,34 +1,4 @@
-`The English version of README.MD is located at ./README-EN.MD`
-# TurboBOS
 
-**TurboBOS** is an operating system kernel simulation project that runs on TurboWarp, with its full name being *Turbo Basic Operating System*. It includes memory management, process scheduling, a file system, system calls, and a self-developed scripting language (BM). It is one of the core components of the **BTA ecosystem** (BTA Software Technology Aggregate).
-
-> This project is an **educational and demonstrative** operating system kernel simulation, not a real operating system that can be booted directly on bare metal.
-
----
-
-## Can it run software?
-
-Yes, but it is still being improved.
-
-We have designed the instruction set architecture (ISA) for BVM and implemented some of the instructions. The project is currently in a **semi-finished state**; we will continue to develop the compiler (BMC) and the scheduler (CFS) in the future.
-
----
-
-## How to download and run?
-
-### Directory Structure
-
-```
-TurboBOS-kernel/
-├── kernel/ # Kernel Core .SB3 File
-├── Expand/ # Various JS extensions that BOS depends on
-├── doc/ # Documentation (English and Chinese)
-├── other/ # Optional attachments (similar to packages, but require manual installation before packaging and compilation)
-├── README.md # This file
-├── README-EN.md # English version of README
-└── LICENSE # GPL-3.0 license
-```
 ### Download
 
 Please download the latest version from the [Releases](https://github.com/BTA-System/TurboBOS-kernel/releases) page. **Avoid downloading older or unstable versions.**
@@ -98,6 +68,6 @@ This project is licensed under **GPL-3.0** – see the `LICENSE` file for detail
 > Sometimes you may see TurboBOS written as BOS, but this is just another shorthand way of writing BOS, and there is actually no difference between the two.
 
 - [BTA Technology Ecosystem](https://github.com/BTA-System)
-- [TurboBOS Official Website](https://bta-system.github.io/TurboBOS-kernel/)
+- [BOS Open Source Software Distribution (BOSP) Repository](https://github.com/BTA-System/BOSP)
 - [TurboBOS GitHub Repository](https://github.com/BTA-System/TurboBOS-kernel)
 - [TurboBOS Documentation](./doc/README.MD)

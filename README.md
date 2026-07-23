@@ -1,5 +1,3 @@
-`英文版README.MD位于./README-EN.MD`
-`The English version of README.MD is located at ./README-EN.MD`
 # TurboBOS
 
 **TurboBOS** 是一个运行在 TurboWarp 上的操作系统内核模拟项目，全称为 *Turbo Basic Operating System* 。包含内存管理、进程调度、文件系统、系统调用和自研脚本语言（BM）。它是 **BTA 体系**（BTA Software Technology Aggregate）的核心组成部分之一。
@@ -24,7 +22,6 @@ TurboBOS-kernel/
 ├── kernel/ # 内核核心.SB3文件
 ├── Expand/ # 各种BOS所依赖的JS扩展
 ├── doc/ # 文档（中英文）
-├── other/ #可选的附件（类似包，但需手动安装再打包编译）
 ├── README.md # 本文件
 ├── README-EN.md # 英文版 README
 └── LICENSE # GPL-3.0 许可证
@@ -98,6 +95,6 @@ TurboBOS 是一个**内核**，本身不包含桌面环境、命令行工具或�
 > 有时候你可能会看到TurboBOS被写成BOS，但这只是BOS的另一种简写写法，两者实际上并没有区别
 
 - [BTA 技术体系](https://github.com/BTA-System)
-- [TurboBOS 官网](https://bta-system.github.io/TurboBOS-kernel/)
+- [BOS 开源软件发行版（BOSP）仓库](https://github.com/BTA-System/BOSP)
 - [TurboBOS GitHub 仓库](https://github.com/BTA-System/TurboBOS-kernel)
 - [TurboBOS文档](./doc/README.MD)

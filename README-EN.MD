@@ -1,4 +1,31 @@
+# TurboBOS
 
+**TurboBOS** is an operating system kernel simulation project that runs on TurboWarp, with its full name being *Turbo Basic Operating System*. It includes memory management, process scheduling, a file system, system calls, and a self-developed scripting language (BM). It is one of the core components of the **BTA ecosystem** (BTA Software Technology Aggregate).
+
+> This project is an **educational and demonstrative** operating system kernel simulation, not a real operating system that can be booted directly on bare metal.
+
+---
+
+## Can it run software?
+
+Yes, but it is still being improved.
+
+We have designed the instruction set architecture (ISA) for BVM and implemented some of the instructions. The project is currently in a **semi-finished state**; we will continue to develop the compiler (BMC) and the scheduler in the future.
+
+---
+
+## How to download and run?
+
+### Directory Structure
+```
+TurboBOS-kernel/
+├── kernel/ # Kernel Core .SB3 File
+├── Expand/ # Various JS extensions that BOS depends on
+├── doc/ # Documentation (English and Chinese)
+├── README.md # This file
+├── README-EN.md # English version of README
+└── LICENSE # GPL-3.0 license
+```
 ### Download
 
 Please download the latest version from the [Releases](https://github.com/BTA-System/TurboBOS-kernel/releases) page. **Avoid downloading older or unstable versions.**
@@ -7,7 +34,6 @@ Please download the latest version from the [Releases](https://github.com/BTA-Sy
 
 1. Go to [TurboWarp](https://turbowarp.org)
 2. Click "Open from your computer" in the top-left toolbar and select the downloaded `.sb3` file.
-3. If you downloaded a `.sprite3` file, first click "Go to source code", then upload it via the button in the bottom-right corner.
 
 ---
 
@@ -46,15 +72,6 @@ Please refer to the file `CONTRIBUTING.md`
 ### Everything self-made
 
 Try to use as few extensions as possible. External capabilities are only employed when absolutely necessary.
-
-### Everything decoupled
-
-Modules are clearly layered, and each module solves only one practical problem. For example:
-
-- BVM's instruction interpreter, fetch-decode-execute loop, and CFS scheduler are independent of each other
-- Each module does only one thing
-
-> Note: There is still significant coupling between BOS and BVM, and it is currently difficult to separate them completely. This is the current reality of the architecture.
 
 ---
 

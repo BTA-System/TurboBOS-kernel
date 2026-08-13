@@ -1,9 +1,9 @@
 # BVM Instruction Set Documentation
 
 ## Instruction Format Description
-- **6-byte instruction**: `[opcode] [dest] [src]` (2 bytes per field)
-- **4-byte instruction**: `[opcode] [addr]` (jump, single-operand instructions)
-- **2-byte instruction**: `[opcode]` (no operand)
+- **6‑byte instruction**: `[opcode] [dest] [src]` (2 bytes per field)
+- **4‑byte instruction**: `[opcode] [addr]` (jump, single‑operand instructions)
+- **2‑byte instruction**: `[opcode]` (no operand)
 
 ## Instruction Opcode Table
 | Opcode Hexadecimal | Opcode Decimal | Opcode Binary | Mnemonic | Length |
@@ -31,204 +31,9 @@
 | 0014 | 20 | 0000 0000 0001 0100 | NOP | 2 |
 | 0015 | 21 | 0000 0000 0001 0101 | XOR | 6 |
 | 0016 | 22 | 0000 0000 0001 0110 | XNOR | 6 |
-| 0017 | 23 | 0000 0000 0001 0111 | GETPC | 4 |
-
----
-
-## Data Transfer Instructions
-
-### MOV — Move Immediate
-- **Opcode**: `0x0000`
-- **Format**: `MOV dest, imm`
-- **Length**: 6 bytes
-- **Behavior**: `reg[dest] = imm`
-- **Example**: `MOV AR, 123`
-
-### MOVR — Move Register
-- **Opcode**: `0x0013`
-- **Format**: `MOVR dest, src`
-- **Length**: 6 bytes
-- **Behavior**: `reg[dest] = reg[src]`
-- **Example**: `MOVR BR, AR`
-
-### GETPC — Get Program Counter
-- **Opcode**: `0x0017`
-- **Format**: `GETPC dest`
-- **Length**: 4 bytes
-- **Behavior**: `reg[dest] = PC`
-- **Example**: `GETPC AR`
-
----
-
-## Arithmetic Instructions
-
-### ADD — Addition
-- **Opcode**: `0x0001`
-- **Format**: `ADD dest, src`
-- **Length**: 6 bytes
-- **Behavior**: `reg[dest] = reg[dest] + reg[src]`
-- **Example**: `ADD AR, BR`
-
-### SUB — Subtraction
-- **Opcode**: `0x0002`
-- **Format**: `SUB dest, src`
-- **Length**: 6 bytes
-- **Behavior**: `reg[dest] = reg[dest] - reg[src]`
-- **Example**: `SUB AR, BR`
-
-### MUL — Multiplication
-- **Opcode**: `0x0003`
-- **Format**: `MUL dest, src`
-- **Length**: 6 bytes
-- **Behavior**: `reg[dest] = reg[dest] * reg[src]`
-- **Example**: `MUL AR, BR`
-
-### DIV — Division
-- **Opcode**: `0x0004`
-- **Format**: `DIV dest, src`
-- **Length**: 6 bytes
-- **Behavior**: `quotient → reg[dest]`, `remainder → ERC`
-- **Example**: `DIV AR, BR`
-
----
-
-## Bitwise Instructions
-
-### AND — Bitwise AND
-- **Opcode**: `0x0010`
-- **Format**: `AND dest, src`
-- **Length**: 6 bytes
-- **Behavior**: `reg[dest] = reg[dest] & reg[src]`
-- **Example**: `AND AR, BR`
-
-### OR — Bitwise OR
-- **Opcode**: `0x0011`
-- **Format**: `OR dest, src`
-- **Length**: 6 bytes
-- **Behavior**: `reg[dest] = reg[dest] | reg[src]`
-- **Example**: `OR AR, BR`
-
-### NOT — Bitwise NOT
-- **Opcode**: `0x0012`
-- **Format**: `NOT dest`
-- **Length**: 4 bytes
-- **Behavior**: `reg[dest] = ~reg[dest]`
-- **Example**: `NOT AR`
-
-### XOR — Bitwise XOR
-- **Opcode**: `0x0015`
-- **Format**: `XOR dest, src`
-- **Length**: 6 bytes
-- **Behavior**: `reg[dest] = reg[dest] ^ reg[src]`
-- **Example**: `XOR AR, BR`
-
-### XNOR — Bitwise XNOR
-- **Opcode**: `0x0016`
-- **Format**: `XNOR dest, src`
-- **Length**: 6 bytes
-- **Behavior**: `reg[dest] = ~(reg[dest] ^ reg[src])`
-- **Example**: `XNOR AR, BR`
-
-### CMP — Compare
-- **Opcode**: `0x000F`
-- **Format**: `CMP dest, src`
-- **Length**: 6 bytes
-- **Behavior**: Computes `reg[dest] - reg[src]`, updates only flags (`AZ`, `AE`, `AC`)
-- **Example**: `CMP AR, BR`
-
-### SHL — Logical Shift Left
-- **Opcode**: `0x000D`
-- **Format**: `SHL dest, src`
-- **Length**: 6 bytes
-- **Behavior**: `reg[dest] = reg[dest] << reg[src]`
-- **Example**: `SHL AR, BR`
-
-### SHR — Logical Shift Right
-- **Opcode**: `0x000E`
-- **Format**: `SHR dest, src`
-- **Length**: 6 bytes
-- **Behavior**: `reg[dest] = reg[dest] >> reg[src]`
-- **Example**: `SHR AR, BR`
-
----
-
-## Control Transfer Instructions
-
-### JMP — Unconditional Jump
-- **Opcode**: `0x0006`
-- **Format**: `JMP addr`
-- **Length**: 4 bytes
-- **Behavior**: `PC = addr`
-- **Example**: `JMP 0x0010`
-
-### JZ — Jump if Zero
-- **Opcode**: `0x0007`
-- **Format**: `JZ addr`
-- **Length**: 4 bytes
-- **Behavior**: If `AZ == 1`, then `PC = addr`
-- **Example**: `JZ 0x0010`
-
-### JNZ — Jump if Not Zero
-- **Opcode**: `0x0008`
-- **Format**: `JNZ addr`
-- **Length**: 4 bytes
-- **Behavior**: If `AZ == 0`, then `PC = addr`
-- **Example**: `JNZ 0x0010`
-
-### JE — Jump if Equal
-- **Opcode**: `0x0009`
-- **Format**: `JE addr`
-- **Length**: 4 bytes
-- **Behavior**: If `AE == 1`, then `PC = addr`
-- **Example**: `JE 0x0010`
-
-### JNE — Jump if Not Equal
-- **Opcode**: `0x000A`
-- **Format**: `JNE addr`
-- **Length**: 4 bytes
-- **Behavior**: If `AE == 0`, then `PC = addr`
-- **Example**: `JNE 0x0010`
-
-### JC — Jump if Carry
-- **Opcode**: `0x000B`
-- **Format**: `JC addr`
-- **Length**: 4 bytes
-- **Behavior**: If `AC == 1`, then `PC = addr`
-- **Example**: `JC 0x0010`
-
-### JNC — Jump if Not Carry
-- **Opcode**: `0x000C`
-- **Format**: `JNC addr`
-- **Length**: 4 bytes
-- **Behavior**: If `AC == 0`, then `PC = addr`
-- **Example**: `JNC 0x0010`
-
----
-
-## System Instructions
-
-### SYSCALL — System Call
-- **Opcode**: `0x0005`
-- **Format**: `SYSCALL`
-- **Length**: 2 bytes
-- **Behavior**: Invokes kernel service according to `AR` (library number) and `BR` (function number).
-- **Example**: `SYSCALL`
-
-### NOP — No Operation
-- **Opcode**: `0x0014`
-- **Format**: `NOP`
-- **Length**: 2 bytes
-- **Behavior**: No operation, yields CPU (cooperative scheduling).
-- **Example**: `NOP`
-
----
-
-## Flag Register Description
-- **AZ (ALU Zero)**: Set to 1 when the operation result is zero.
-- **AE (ALU Equal)**: Set to 1 when comparison is equal.
-- **AC (ALU Carry)**: Set to 1 on addition carry or subtraction borrow.
-- **ERR**: 1 = success, 0 = failure.
-- **ERC**: Stores return value on success, error code on failure.
+| 0017 | 23 | 0000 0000 0001 0111 | GETPC | 2 |
+| 0018 | 24 | 0000 0000 0001 1000 | PUSH | 4 |
+| 0018 | 25 | 0000 0000 0001 1001 | POP | 4 |
 
 ---
 
@@ -243,15 +48,14 @@
 | ER | 0004 | Read/Write |
 | FR | 0005 | Read/Write |
 | GR | 0006 | Read/Write |
-| ERR | 0007 | Read-Only |
-| ERC | 0008 | Read-Only |
-| AZ | 0009 | Read-Only |
-| AE | 000A | Read-Only |
-| AC | 000B | Read-Only |
-| LSP | 000C | Read/Write |
-| RSP | 000D | Read/Write |
+| ERR | 0007 | Read‑Only |
+| ERC | 0008 | Read‑Only |
+| AZ | 0009 | Read‑Only |
+| AE | 000A | Read‑Only |
+| AC | 000B | Read‑Only |
+| SP | 000C | Read/Write |
 | AdR | 000E | Read/Write |
 
 ---
 
-Last Updated: 2026-8-3 | Author: qpwq1 (XaoDingx)
+Last Updated: 2026-8-13 | Author: qpwq1 (XaoDingx)

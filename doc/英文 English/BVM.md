@@ -1,9 +1,9 @@
 # BVM Instruction Set Documentation
 
 ## Instruction Format Description
-- **6‑byte instruction**: `[opcode] [dest] [src]` (2 bytes per field)
-- **4‑byte instruction**: `[opcode] [addr]` (jump, single‑operand instructions)
-- **2‑byte instruction**: `[opcode]` (no operand)
+- **6-byte instruction**: `[opcode] [dest] [src]` (2 bytes per field)
+- **4-byte instruction**: `[opcode] [addr]` (jump, single-operand instructions)
+- **2-byte instruction**: `[opcode]` (no operand)
 
 ## Instruction Opcode Table
 | Opcode Hexadecimal | Opcode Decimal | Opcode Binary | Mnemonic | Length |
@@ -31,9 +31,8 @@
 | 0014 | 20 | 0000 0000 0001 0100 | NOP | 2 |
 | 0015 | 21 | 0000 0000 0001 0101 | XOR | 6 |
 | 0016 | 22 | 0000 0000 0001 0110 | XNOR | 6 |
-| 0017 | 23 | 0000 0000 0001 0111 | GETPC | 2 |
-| 0018 | 24 | 0000 0000 0001 1000 | PUSH | 4 |
-| 0018 | 25 | 0000 0000 0001 1001 | POP | 4 |
+| 0017 | 23 | 0000 0000 0001 0111 | PUSH | 4 |
+| 0018 | 24 | 0000 0000 0001 1000 | POP | 4 |
 
 ---
 
@@ -48,14 +47,54 @@
 | ER | 0004 | Read/Write |
 | FR | 0005 | Read/Write |
 | GR | 0006 | Read/Write |
-| ERR | 0007 | Read‑Only |
-| ERC | 0008 | Read‑Only |
-| AZ | 0009 | Read‑Only |
-| AE | 000A | Read‑Only |
-| AC | 000B | Read‑Only |
-| SP | 000C | Read/Write |
-| AdR | 000E | Read/Write |
+| SP | 0007 | Read/Write |
+| AdR | 0008 | Read/Write |
+| AC | 0009 | Read-Only |
+| AE | 000A | Read-Only |
+| AZ | 000B | Read-Only |
+| ERR | 000C | Read-Only |
+| ERC | 000D | Read-Only |
+| PC | 000E | Read/Write (can be indirectly modified via JMP) |
+
+*The PC register is decimal in the Kernel; the value obtained when actually passed to BVM/programs is binary*
 
 ---
 
-Last Updated: 2026-8-13 | Author: qpwq1 (XaoDingx)
+## Register Bit Widths
+
+| Register | Bit Width |
+| :--- | :--- |
+| AR | 16 |
+| BR | 16 |
+| CR | 16 |
+| DR | 16 |
+| ER | 16 |
+| FR | 16 |
+| GR | 16 |
+| SP | 16 |
+| Adr | 16 |
+| AC | 1 |
+| AE | 1 |
+| AZ | 1 |
+| ERR | 1 |
+| ERC | 16 |
+| PC | 16 |
+
+*AR–GR are general-purpose registers, AC, AE, AZ, and ERR are flag registers, and AdR and SP are pointer registers (SP is the stack pointer, and AdR is a general-purpose pointer register). ERR and ERC are both system call register flags*
+
+---
+
+## Special Registers (Invisible to BVM Programs, Kernel Constants)
+| Register | Bit Width | Remarks |
+| :--- | :--- | :--- |
+| SD | 16 | Start Data, the start address of the DATA segment; minus 1 is the end of the TEXT segment |
+| SS | 16 | Start Stack, the start address of the Stack segment; minus 1 is the end of the DATA segment |
+| ES | 16 | End Stack, the end address of the Stack segment; plus 1 is the start address of the HEAP segment |
+| BASE | 16 | RAM start address, constant maintained at 0x0000 |
+| LIMIT | 16 | RAM end address, constant maintained at 0xFFFF |
+
+*For the LIMIT register, we will look into whether to add more address lines in the future, and the bit width of this register will change. It is for kernel use only*
+
+---
+
+Last Updated: 2026-10-25 | Author: qpwq1 (XaoDingx)
